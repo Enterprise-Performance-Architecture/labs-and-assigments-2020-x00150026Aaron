@@ -73,3 +73,9 @@ cd ..
 cd CA1/
 ls
 git add --all
+git commit -m "CA1" --all
+git push
+ls
+cd ..
+git add --all
+git commit -m " " --all
