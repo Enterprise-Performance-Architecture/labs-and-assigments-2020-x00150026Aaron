@@ -87,3 +87,20 @@ git add Docker
 git add Dockerfile 
 git add DockerTutorial.html 
 git add --all
+git commit -m "Docker" --all
+git push
+ls
+cd ..
+mkdir Week3
+cd Week3
+ls
+cd CA1/
+ls
+Dockerfile
+./Dockerfile
+chmod u+x ./Dockerfile
+docker build .
+python3 -m http.server 8080
+nano README.md
+git add README.md 
+git push
