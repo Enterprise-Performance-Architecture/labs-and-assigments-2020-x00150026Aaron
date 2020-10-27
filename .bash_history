@@ -52,3 +52,24 @@ cd Week2/
 LS
 ls
 git add --all
+git commit -m "Added history and small script" --all
+git push
+cd ..
+ls
+monitor.sh b7
+mkdir CA1
+cd CA1/
+nano Dockerfile
+ls
+nano DockerTutorial.html
+docker build .
+python3 -m http.server 8080
+ls
+cd ..
+ls
+cd Week2/
+ls
+cd ..
+cd CA1/
+ls
+git add --all
