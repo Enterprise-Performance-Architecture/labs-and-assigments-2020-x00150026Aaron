@@ -1,0 +1,46 @@
+    1  ls
+    2  nano
+    3  ls
+    4  $home
+    5  cd..
+    6  cd.
+    7  ls -l
+    8  nano test
+    9  more test
+   10  ls
+   11  echo "# labs-and-assigments-2020-x00150026Aaron" >> README.md
+   12  git init
+   13  git add README.md
+   14  git commit -m "first commit"
+   15  git config --global user.email "x00150026@mytudublin.ie"
+   16  git config --global user.name "x00150026Aaron"
+   17  git commit -m "first commit"
+   18  git branch -M master
+   19  git remote add origin https://github.com/Enterprise-Performance-Architecture/labs-and-assigments-2020-x00150026Aaron.git
+   20  git push -u origin master
+   21  ls
+   22  nano test
+   23  ls
+   24  monitor more
+   25  more monitor
+   26  monitor
+   27  run monitor
+   28  .monitor
+   29  ls
+   30  ./monitor
+   31  chmod u+x monitor
+   32  ls -l
+   33  monitor
+   34  ./monitor
+   35  ./monitor.sh
+   36  ./monitor
+   37  chmod u+x monitor
+   38  ./monitor
+   39  nano monitor
+   40  mkdir Week2
+   41  cd Week2/
+   42  nano first_script.sh
+   43  chmod +x first_script.sh 
+   44  ./first_script.sh 
+   45  history < history.txt
+   46  history > history.txt
