@@ -104,3 +104,19 @@ python3 -m http.server 8080
 nano README.md
 git add README.md 
 git push
+git commit -m "Docker" --all
+git push
+df -h
+cd ..
+df -h
+docker build .
+cd CA1/
+docker build .
+Dockerfile
+chmod u+x ./Dockerfile
+docker build .
+df -h
+cd CA1/
+ls
+nano README.md
+git push
