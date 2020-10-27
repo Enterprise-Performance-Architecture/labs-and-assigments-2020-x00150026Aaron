@@ -79,3 +79,11 @@ ls
 cd ..
 git add --all
 git commit -m " " --all
+git commit -m "." --all
+git push
+git pull
+cd CA1/
+git add Docker
+git add Dockerfile 
+git add DockerTutorial.html 
+git add --all
