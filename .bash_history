@@ -120,3 +120,17 @@ cd CA1/
 ls
 nano README.md
 git push
+git commit -m "Docker" --all
+git push
+docker ps -a
+gsutil mb gs://epa_x00150026
+gsutil cp README.md gs://epa_x00150026
+ls
+cd CA1/
+nano Dockerfile
+chmod u+x ./Dockerfile
+docker build .
+nano Dockerfile
+docker build .
+chmod u+x ./Dockerfile
+python3 -m http.server 8080
