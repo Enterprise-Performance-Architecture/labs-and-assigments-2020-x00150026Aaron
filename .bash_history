@@ -134,3 +134,5 @@ nano Dockerfile
 docker build .
 chmod u+x ./Dockerfile
 python3 -m http.server 8080
+git commit -m "Docker" --all
+git push
