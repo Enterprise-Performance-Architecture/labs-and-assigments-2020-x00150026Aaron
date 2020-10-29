@@ -1,20 +1,16 @@
-#The FROM instruction initializes a new build stage and sets the Base Image for subsequent instructions. All valid Dockerfiles must begin with FROM
-#It is easiest to pull an image from a the public repos.
-#FROM can appear multiple times within a single Dockerfile to create multiple images or use one build stage as a dependency for another.
-#Each FROM instruction clears any state created by previous instructions.
+#This is the first command in a Dockerfile and is needed to run properly.
+#This command is used to format a new build stage and indicates what base image to use for the following instructions.
+#You can use local images or pull one from public repos. FROM can be used multiple times to create several images.
 FROM python:3.9
 
-#The COPY instruction copies new files or directories from source and adds them to the filesystem of the container at the path destination.
-#Multiple source resources may be specified but the paths of files and directories will be interpreted as relative to the source of the context of the build.
-#Dockerfile and DockerTutorial.html are in the same dir so source of the latter doesn't need to be specified.
-COPY DockerTutorial.html /
+#This sets the work directory to CA1. Commands such as RUN, CMD and COPY are to be executed here.
+WORKDIR /CA1
 
-#The EXPOSE instruction informs Docker that the container listens on the specified network ports at runtime.
-#You can specify whether the port listens on TCP or UDP, and the default is TCP if the protocol is not specified.
-EXPOSE 8080
+#This command copies files or whole directories from a sepcified local source to a specified destination within the container.
+#Several source files or directories can be copied in the one command. The location of these files are interpreted as relative to the directory you are building the docker in.
+#Dockerfile and DockerTutorial.html are in the same dir, so source of the latter doesn't need to be specified.
+COPY DockerTutorial.html /CA1
 
-#There can only be one CMD instruction in a Dockerfile. If you list more than one CMD then only the last CMD will take effect.
-
-#The main purpose of a CMD is to provide defaults for an executing container. 
-#These defaults can include an executable, or they can omit the executable.
+#Only one CMD command is needed for a Dockerfile, if you use more than one only the last one will work.
+#CMD is used to provide defaults for an executing container such as including or omiting an executable.
 CMD python3 -m http.server 8080

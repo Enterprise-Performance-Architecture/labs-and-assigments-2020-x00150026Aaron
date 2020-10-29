@@ -1,9 +1,155 @@
 <!DOCTYPE html>
 <html>
 <body>
-
-<h1>My First Heading</h1>
-<p>My first paragraph.</p>
-
+  
+<h1 style="line-height: 1;"><strong>HOW TO USE DOCKER</strong></h1>
+<p style="line-height: 1;"><br></p>
+<h3 style="line-height: 1;"><strong>Creating your &apos;Dockerfile&apos;</strong></h3>
+<p style="line-height: 1;"><a href="https://www.youtube.com/watch?v=i7ABlHngi1Q&ab_channel=TravisMedia">How to video</a></p>
+<p style="line-height: 1;"><br></p>
+<p style="line-height: 1;">Create a new directory to hold your Dockerfile using <strong>mkdir</strong>.</p>
+<p style="line-height: 1;">Then create your file under the name <strong>&apos;Dockerfile&apos;</strong> and open it in the editor using <strong>&apos;nano Dockerfile&apos;</strong>. The capital D is necessary.</p>
+<p style="line-height: 1;">Nano can be used to create a new file or open and edit an existing one. If you are creating a new file such as a .sh or .html you should put the file extension after the name&nbsp;</p>
+<p style="line-height: 1;">to specify the file type e.g. &apos;index.html&apos;</p>
+<p style="line-height: 1;">Here you can begin writing your Dockerfile.</p>
+<p style="line-height: 1;"><br></p>
+<p style="line-height: 1;">The main commands that we need to know are:</p>
+<p style="line-height: 1;"><strong>FROM, RUN, CMD, EXPOSE, COPY&nbsp;</strong>and <strong>WORKDIR</strong></p>
+<p style="line-height: 1;"><a href="https://docs.docker.com/engine/reference/builder/">Reference this website if you need my info</a></p>
+<p style="line-height: 1;"><br></p>
+<p style="line-height: 1;"><strong>FROM</strong></p>
+<p style="line-height: 1;">This is the first command in a Dockerfile and is needed to run properly.</p>
+<p style="line-height: 1;">This command is used to format a new build stage and indicates what base image to use for the following instructions.</p>
+<p style="line-height: 1;">You can use local images or pull one from public repos. FROM can be used multiple times to create several images.</p>
+<p style="line-height: 1;">You must specify the version after the colon.</p>
+<p style="line-height: 1;"><u>Examples:</u></p>
+<p style="line-height: 1;">FROM ubuntu:latest</p>
+<p style="line-height: 1;">FROM python:3.9</p>
+<p style="line-height: 1;"><br></p>
+<p style="line-height: 1;"><strong>RUN&nbsp;</strong></p>
+<p style="line-height: 1;">This command is similar to the CMD command, however you can use several RUN commands.&nbsp;</p>
+<p style="line-height: 1;">RUN will execute commands and commit the results to the image, so you can use it to manipulate your image before the next commands in your dockerfile if needs be.</p>
+<p style="line-height: 1;"><u>Example:</u></p>
+<p style="line-height: 1;">RUN chmod u+x /script.sh</p>
+<p style="line-height: 1;"><br></p>
+<p style="line-height: 1;"><strong>CMD</strong></p>
+<p style="line-height: 1;">Only one CMD command is needed for a Dockerfile, if you use more than one only the last one will work.</p>
+<p style="line-height: 1;">CMD is used to provide defaults for an executing container such as including or omitting an executable.</p>
+<p style="line-height: 1;"><u>Examples:</u></p>
+<p style="line-height: 1;">CMD [&quot;/script.sh&quot;]</p>
+<p style="line-height: 1;">CMD python3 -m http.server 8080</p>
+<p style="line-height: 1;"><br></p>
+<p style="line-height: 1;"><strong>EXPOSE</strong></p>
+<p style="line-height: 1;">The EXPOSE command tells Docker that the container listens on the specified network ports at runtime.</p>
+<p style="line-height: 1;">TCP or UDP can be specified, TCP is the default if not specified however.</p>
+<p style="line-height: 1;"><u>Example:</u></p>
+<p style="line-height: 1;">EXPOSE 8080</p>
+<p style="line-height: 1;"><br></p>
+<p style="line-height: 1;"><strong>COPY</strong></p>
+<p style="line-height: 1;">This command copies files or whole directories from a specified local source to a specified destination within the container.</p>
+<p style="line-height: 1;">Several source files or directories can be copied in the one command. The location of these files are interpreted as relative to the directory you are building the docker in.</p>
+<p style="line-height: 1;"><u>Examples:</u></p>
+<p style="line-height: 1;">COPY script.sh /</p>
+<p style="line-height: 1;">COPY script.sh relativeDirectory/</p>
+<p style="line-height: 1;">COPY script.sh /absoluteDirectory/</p>
+<p style="line-height: 1;"><br></p>
+<p style="line-height: 1;"><strong>WORKDIR</strong></p>
+<p style="line-height: 1;">This command sets which directory other commands such as RUN, CMD and COPY are to be executed in. If the directory doesn&apos;t exist it will be created.</p>
+<p style="line-height: 1;"><u>Example:</u></p>
+<p style="line-height: 1;">WORKDIR /usr/local</p>
+<p style="line-height: 1;"><br></p>
+<p style="line-height: 1;"><br></p>
+<p style="line-height: 1;">Here is an example of what your Dockerfile might look like when completed.</p>
+<p style="line-height: 1;"><br></p>
+<p style="line-height: 1;">FROM python:3.9</p>
+<p style="line-height: 1;">WORKDIR /CA1</p>
+<p style="line-height: 1;">COPY DockerTutorial.html /CA1</p>
+<p style="line-height: 1;">CMD python3 -m http.server 8080</p>
+<p style="line-height: 1;"><br></p>
+<p style="line-height: 1;"><u>To run your Dockerfile use the command <strong>&apos;docker run&apos;</strong>.</u></p>
+<p style="line-height: 1;">You will probably have to stop, start and kill your containers several times while working on your image. <a href="https://phoenixnap.com/kb/how-to-list-start-stop-docker-containers">This link</a> should help.</p>
+<p style="line-height: 1;"><br></p>
+<h3 style="line-height: 1;"><strong>Building your Dockerfile</strong></h3>
+<p style="line-height: 1;"><br></p>
+<p style="line-height: 1;">After saving your Dockerfile you now need to build it. While in the directory containing your Dockerfile, enter the command &apos;<strong>docker build .</strong>&apos; .</p>
+<p style="line-height: 1;">You will be asked to authorise the first time. This will take a couple of seconds to complete but once done you should check that the image is there.</p>
+<p style="line-height: 1;">This is done by entering &apos;<strong>docker images</strong>&apos; to the terminal. The name of the repository and version along with other should be displayed.</p>
+<p style="line-height: 1;"><br></p>
+<h3 style="line-height: 1;"><strong>Pulling an image</strong></h3>
+<p style="line-height: 1;"><br></p>
+<p style="line-height: 1;">There are multiple ways to obtain and image. You can build them, download them from dockerhub and place them in the desired directory or you can pull them.</p>
+<p style="line-height: 1;">The command to pull an image is &apos;docker pull&apos; followed by the repository. Here is an example:</p>
+<p style="line-height: 1;"><br></p>
+<p style="line-height: 1;">docker pull tudjburns/careless-banking:latest</p>
+<p style="line-height: 1;"><br></p>
+<p style="line-height: 1;">Now you should check that the image has been pulled correctly using &apos;docker images&apos;.</p>
+<p style="line-height: 1;"><br></p>
+<p style="line-height: 1;"><br></p>
+<h3 style="line-height: 1;"><strong>Pushing an image</strong></h3>
+<p style="line-height: 1;"><a href="https://medium.com/google-cloud/how-to-push-docker-image-to-google-private-container-registry-a2b58615e795">More help</a></p>
+<p style="line-height: 1;"><br></p>
+<p style="line-height: 1;">In order to upload an image that you wish to keep to a private repo we use the push command.</p>
+<p style="line-height: 1;">If you want to keep this container for yourself, you can push it to your personal private google cloud image repository:</p>
+<p style="line-height: 1;"><br></p>
+<p style="line-height: 1;">The first step is to use &apos;<strong>docker ta</strong><strong>g</strong>&apos; followed by your image ID and repo:</p>
+<p style="line-height: 1;">docker tag df0995659b6a eu.gcr.io/&lt;Project-ID&gt;/CA1:latest</p>
+<p style="line-height: 1;"><br></p>
+<p style="line-height: 1;">Then we push the image to our private repository:</p>
+<p style="line-height: 1;">docker push eu.gcr.io/&lt;Project-ID&gt;/CA1:latest</p>
+<p style="line-height: 1;"><br></p>
+<p style="line-height: 1;">To check if your image has been pushed run the following command.</p>
+<p style="line-height: 1;">gcloud container images list --repository eu.gcr.io/&lt;Project-ID&gt;</p>
+<p style="line-height: 1;">The images in this repo will be displayed.</p>
+<p style="line-height: 1;"><br></p>
+<p style="line-height: 1;"><br></p>
+<h3 style="line-height: 1;"><strong>Long Running Containers as Servers</strong></h3>
+<p style="line-height: 1;"><br></p>
+<p style="line-height: 1;">To run one of these containers we use use the command &apos;docker run&apos; again. This time we should map the ports using &apos;-p containerPort:listeningPort&apos;.</p>
+<p style="line-height: 1;">This is followed by the Repository or Image ID.</p>
+<p style="line-height: 1;"><u>Examples:</u></p>
+<p style="line-height: 1;">docker run -p 8090:8080 tudjburns/careless-banking:latest</p>
+<p style="line-height: 1;">docker run -p 8080:8080 df0995659b6a</p>
+<p style="line-height: 1;"><br></p>
+<p style="line-height: 1;">As this is still running the terminal wont prompt you again. Click on the web preview button. A new tab will open, here you should be able to click your hosted html website.</p>
+<p style="line-height: 1;"><br></p>
+<h1 style="line-height: 1;">How I completed this CA1</h1>
+<p style="line-height: 1;"><br></p>
+<p style="line-height: 1;">First I created a new directory for this CA called &apos;CA1&apos; using the mkdir command in the google cloud terminal.</p>
+<p style="line-height: 1;">I CD&apos;ed into this dir and used &apos;nano Dockerfile&apos; to create my dockerfile. I typed the following into the nano editor:</p>
+<p style="line-height: 1;"><br></p>
+<p style="line-height: 1;">FROM python:3.9</p>
+<p style="line-height: 1;">WORKDIR /CA1</p>
+<p style="line-height: 1;">COPY index.html /CA1</p>
+<p style="line-height: 1;">CMD python3 -m http.server 8080</p>
+<p style="line-height: 1;"><br></p>
+<p style="line-height: 1;">This took a bit of tweaking. I added comments.</p>
+<p style="line-height: 1;"><br></p>
+<p style="line-height: 1;">Then I made the html file in CA1 using &apos;nano DockerTutorial.html&apos;. Here I edited the html to create this tutorial.</p>
+<p style="line-height: 1;"><br></p>
+<p style="line-height: 1;">Then I used &apos;docker build .&apos; to build my image.</p>
+<p style="line-height: 1;">I checked that it was there using &apos;docker images&apos;</p>
+<p style="line-height: 1;">Once built I ran the long running container which would act as a server to host this html site.</p>
+<p style="line-height: 1;">This is the command I used, the image ID might be different when I upload this.</p>
+<p style="line-height: 1;">docker run -p 8080:8080 cc3bbe5c6cf2</p>
+<p style="line-height: 1;"><br></p>
+<p style="line-height: 1;">I checked that the container server was working by clicking web preview and clicking on my html file.</p>
+<p style="line-height: 1;"><br></p>
+<p style="line-height: 1;">My image was complete so I pushed it to my private google repo.</p>
+<p style="line-height: 1;">I tagged the image.</p>
+<p style="line-height: 1;">docker tag cc3bbe5c6cf2 eu.gcr.io/operating-attic-290310/ca1:latest</p>
+<p style="line-height: 1;">Then I pushed the image.</p>
+<p style="line-height: 1;">docker push eu.gcr.io/operating-attic-290310/ca1:latest</p>
+<p style="line-height: 1;">Once it was pushed I checked that it was there.</p>
+<p style="line-height: 1;">gcloud container images list --repository eu.gcr.io/operating-attic-290310</p>
+<p style="line-height: 1;"><br></p>
+<p style="line-height: 1;">I was presented with:</p>
+<p style="line-height: 1;">NAME</p>
+<p style="line-height: 1;">eu.gcr.io/operating-attic-290310/ca1</p>
+<p style="line-height: 1;"><br></p>
+<p style="line-height: 1;">Once I seen this I pulled it using this command.</p>
+<p style="line-height: 1;">docker pull operating-attic-290310/ca1:latest</p>
+<p style="line-height: 1;"><br></p>
+<p style="line-height: 1;">Then I ran the image and previewed on web so I knew it worked and I was done.</p>
+ 
 </body>
 </html>
